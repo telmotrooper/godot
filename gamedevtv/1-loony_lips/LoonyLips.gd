@@ -1,25 +1,29 @@
 extends Node2D
 
 var player_words = []
-var template = [
-  {
-    "prompt" : ["a name", "a thing", "a feeling", "another feeling", "some things"],
-    "story" : "Once upon a time a %s ate a %s and felt very %s. It was a %s day for all good %s."
-  },
-  {
-    "prompt" : ["an animal", "a food", "a feeling"],
-    "story" : "There was once a %s that really liked %s. One day he got so %s that he ate it all at once."
-  }
-]
+var strings # all the text that is displayed to the player
 var current_story
 
 func _ready():
-  randomize()
-  current_story = template[randi() % template.size()]
-  $Blackboard/StoryText.text = "Welcome to Loony Lips!" + "\n\n" \
-  + "We're going to tell a story and have a lovely time!" + "\n\n" \
-  + "Can I have " + current_story.prompt[player_words.size()] + ", please?"
+  set_random_story()
+  strings = get_from_json("other_strings.json")
+  
+  $Blackboard/StoryText.text = strings.intro_text
+  prompt_player()
   $Blackboard/TextBox.text = ""
+
+func set_random_story():
+  var stories = get_from_json("stories.json")
+  randomize()
+  current_story = stories[randi() % stories.size()]
+
+func get_from_json(filename):
+  var file = File.new() # the file object
+  file.open(filename, File.READ) # assuming the file exists
+  var text = file.get_as_text()
+  var data = parse_json(text)
+  file.close()
+  return data
 
 func _on_TextureButton_pressed():
   if is_story_done():
@@ -31,13 +35,15 @@ func _on_TextureButton_pressed():
 func _on_TextBox_text_entered(new_text):
   player_words.append(new_text)
   $Blackboard/TextBox.text = ""
+  $Blackboard/StoryText.text = ""
   check_player_word_length()
 
 func is_story_done():
   return player_words.size() == current_story.prompt.size()
 
 func prompt_player():
-  $Blackboard/StoryText.text = ("Can I have " + current_story.prompt[player_words.size()] + ", please?")
+  var next_prompt = current_story.prompt[player_words.size()]
+  $Blackboard/StoryText.text += strings.prompt % next_prompt
 
 func check_player_word_length():
   if is_story_done():
@@ -51,4 +57,4 @@ func tell_story():
 
 func end_game():
   $Blackboard/TextBox.queue_free()
-  $Blackboard/TextureButton/RichTextLabel.text = "Again!"
+  $Blackboard/TextureButton/RichTextLabel.text = strings.again

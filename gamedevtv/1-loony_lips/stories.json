@@ -1,0 +1,23 @@
+[
+  {
+    "prompt" : [
+      "a name",
+      "a thing",
+      "a feeling",
+      "another feeling",
+      "some things"
+    ],
+
+    "story" : "Once upon a time a %s ate a %s and felt very %s. It was a %s day for all good %s."
+  },
+  
+  {
+    "prompt" : [
+      "an animal",
+      "a food",
+      "a feeling"
+    ],
+
+    "story" : "There was once a %s that really liked %s. One day he got so %s that he ate it all at once."
+  }
+]
