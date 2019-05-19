@@ -1,48 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://GFX/Environment/ground_grass.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Camera2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/PlatformTiles.tres" type="TileSet" id=3]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 260.138, 347.019 )
+position = Vector2( 116.639, 130.511 )
 
-[node name="Platform" type="StaticBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 210.901, 500.314 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Camera2D" parent="Player" instance=ExtResource( 2 )]
+zoom = Vector2( 1.5, 1.5 )
+limit_left = 0
+limit_bottom = 1400
+smoothing_enabled = true
 
-[node name="Sprite" type="Sprite" parent="Platform"]
-texture = ExtResource( 2 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform"]
-polygon = PoolVector2Array( -174.826, -50.2841, 175.174, -50.2841, 195.174, -30.2841, 195.174, -10.2841, 165.174, 39.7159, -164.826, 49.7159, -194.826, -10.2841, -194.826, -30.2841 )
-
-[node name="Platform2" type="StaticBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 918.341, 274.753 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Platform2"]
-texture = ExtResource( 2 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform2"]
-polygon = PoolVector2Array( -174.826, -50.2841, 175.174, -50.2841, 195.174, -30.2841, 195.174, -10.2841, 165.174, 39.7159, -164.826, 49.7159, -194.826, -10.2841, -194.826, -30.2841 )
-
-[node name="Platform3" type="StaticBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 809.662, 586.437 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Platform3"]
-texture = ExtResource( 2 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform3"]
-polygon = PoolVector2Array( -174.826, -50.2841, 175.174, -50.2841, 195.174, -30.2841, 195.174, -10.2841, 165.174, 39.7159, -164.826, 49.7159, -194.826, -10.2841, -194.826, -30.2841 )
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+format = 1
+tile_data = PoolIntArray( -65519, 4, 0, 196617, 4, 0, 458754, 0, 0, 524298, 4, 0, 786446, 4, 0, 983058, 2, 0 )
