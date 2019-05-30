@@ -6,6 +6,7 @@ const UP = Vector2(0, -1)
 const JUMP_SPEED = -1100
 
 var motion = Vector2()
+export var world_limit = 3200
 
 func _physics_process(delta):
   fall(delta)
@@ -20,6 +21,9 @@ func fall(delta):
     motion.y = 1
   else:
     motion.y += GRAVITY * delta
+
+  if position.y > world_limit:
+    end_game()
 
 func jump():
   if is_on_floor() and Input.is_action_pressed("ui_up"):
@@ -40,3 +44,6 @@ func run():
     motion.x = 0
     $AnimatedSprite.play("idle")
     $AnimatedSprite.flip_h = false
+
+func end_game():
+  get_tree().change_scene("res://Scenes/GameOver.tscn")

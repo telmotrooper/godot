@@ -12,6 +12,7 @@ position = Vector2( 357, 915.5 )
 [node name="Camera2D" parent="Player" instance=ExtResource( 2 )]
 zoom = Vector2( 2.25, 2.25 )
 limit_left = 0
+limit_bottom = 3200
 smoothing_enabled = true
 smoothing_speed = 7.0
 

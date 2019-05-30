@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/GameOver.gd" type="Script" id=1]
+[ext_resource path="res://GFX/Background/bg_layer1.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/candles_.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://GFX/HUD/lifes.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 3 )
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="GameOverLabel" type="Label" parent="CenterContainer"]
+margin_left = 269.0
+margin_top = 224.0
+margin_right = 882.0
+margin_bottom = 424.0
+rect_min_size = Vector2( 400, 200 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "GAME OVER"
+align = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 373.498
+margin_top = 330.0
+margin_right = 451.498
+margin_bottom = 436.0
+rect_min_size = Vector2( 78, 106 )
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="Label" type="Label" parent="TextureButton"]
+margin_left = 89.6293
+margin_top = 34.8526
+margin_right = 383.629
+margin_bottom = 111.853
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Try again"
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
