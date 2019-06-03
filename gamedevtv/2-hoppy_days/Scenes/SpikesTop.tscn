@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/SpikesTop.gd" type="Script" id=1]
+[ext_resource path="res://GFX/Environment/spikes_top.png" type="Texture" id=2]
+
+[node name="SpikesTop" type="Area2D"]
+position = Vector2( -1.50206, 9.51306 )
+collision_layer = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -47.7413, 25.769, -34.1225, -27.0455, 32.9751, -27.2116, 46.594, 25.769 )
+__meta__ = {
+"_edit_group_": true
+}
+[connection signal="body_entered" from="." to="." method="_on_SpikesTop_body_entered"]
