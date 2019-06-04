@@ -6,7 +6,7 @@
 [ext_resource path="res://GFX/HUD/lifes.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 50
+size = 40
 font_data = ExtResource( 2 )
 
 [node name="GUI" type="CanvasLayer"]
@@ -14,10 +14,10 @@ font_data = ExtResource( 2 )
 [node name="Banner" type="TextureRect" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -339.492
-margin_top = 15.0
-margin_right = -26.4923
-margin_bottom = 134.673
+margin_left = -311.8
+margin_top = 29.356
+margin_right = -42.7998
+margin_bottom = 111.356
 texture = ExtResource( 1 )
 expand = true
 __meta__ = {
@@ -28,36 +28,36 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -321.068
-margin_top = 35.6245
-margin_right = 6.93182
-margin_bottom = -8.37553
+margin_left = -275.0
+margin_top = 13.0
+margin_right = 7.0
+margin_bottom = 2.0
 alignment = 1
 
 [node name="CoinCount" type="Label" parent="Banner/HBoxContainer"]
-margin_left = 36.0
-margin_top = 5.0
-margin_right = 102.0
-margin_bottom = 69.0
+margin_left = 27.0
+margin_top = 9.0
+margin_right = 79.0
+margin_bottom = 61.0
 custom_fonts/font = SubResource( 1 )
 text = "00"
 
 [node name="CoinIcon" type="TextureRect" parent="Banner/HBoxContainer"]
-margin_left = 106.0
-margin_right = 166.0
-margin_bottom = 75.0
+margin_left = 83.0
+margin_right = 143.0
+margin_bottom = 71.0
 texture = ExtResource( 3 )
 
 [node name="LifeCount" type="Label" parent="Banner/HBoxContainer"]
-margin_left = 170.0
-margin_top = 5.0
-margin_right = 236.0
-margin_bottom = 69.0
+margin_left = 147.0
+margin_top = 9.0
+margin_right = 199.0
+margin_bottom = 61.0
 custom_fonts/font = SubResource( 1 )
 text = "00"
 
 [node name="LifeIcon" type="TextureRect" parent="Banner/HBoxContainer"]
-margin_left = 240.0
-margin_right = 292.0
-margin_bottom = 75.0
+margin_left = 203.0
+margin_right = 255.0
+margin_bottom = 71.0
 texture = ExtResource( 4 )
