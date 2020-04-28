@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/space.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/moon.png" type="Texture" id=2]
+[ext_resource path="res://Spaceship.gd" type="Script" id=3]
+[ext_resource path="res://assets/spaceship.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 145.848
+
+[sub_resource type="CircleShape2D" id=2]
+
+[node name="Node" type="Node"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 76.0
+margin_top = 69.0
+margin_right = 160.0
+margin_bottom = 83.0
+text = "Hello, World!"
+
+[node name="Space (Background)" type="Sprite" parent="."]
+position = Vector2( 495.238, 291.123 )
+scale = Vector2( 0.632813, 0.632814 )
+z_index = -1
+texture = ExtResource( 1 )
+
+[node name="Moon" type="StaticBody2D" parent="."]
+position = Vector2( 359, 119 )
+
+[node name="Sprite" type="Sprite" parent="Moon"]
+position = Vector2( 426.648, 69.9464 )
+scale = Vector2( 0.577568, 0.577568 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moon"]
+position = Vector2( 430.332, 69.3771 )
+scale = Vector2( 0.896691, 0.896691 )
+shape = SubResource( 1 )
+
+[node name="Spaceship" type="RigidBody2D" parent="."]
+position = Vector2( 462.212, 258.476 )
+mass = 0.0918367
+gravity_scale = 0.0
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Spaceship"]
+position = Vector2( -6.37408, 120.756 )
+scale = Vector2( 0.313606, 0.313606 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spaceship"]
+position = Vector2( -5.19031, 121.742 )
+scale = Vector2( 5.02219, 5.02219 )
+shape = SubResource( 2 )
