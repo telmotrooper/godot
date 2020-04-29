@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/GameState.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/SpikesTop.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/SpikesBottom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://SFX/Chiptune_Adventures_1.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Items/JumpPad.tscn" type="PackedScene" id=8]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
@@ -43,7 +44,7 @@ position = Vector2( 652.932, 2143.98 )
 position = Vector2( 3196.32, 2913.67 )
 
 [node name="SpikesTop5" parent="Spikes" instance=ExtResource( 5 )]
-position = Vector2( 2304.59, 1377.53 )
+position = Vector2( 2163.1, 1381.63 )
 
 [node name="SpikesBottom" parent="Spikes" instance=ExtResource( 6 )]
 position = Vector2( 2413.62, 2536 )
@@ -55,5 +56,22 @@ position = Vector2( 1303.45, 618.556 )
 stream = ExtResource( 7 )
 volume_db = -5.0
 autoplay = true
+
+[node name="JumpPads" type="Node" parent="."]
+
+[node name="JumpPad" parent="JumpPads" instance=ExtResource( 8 )]
+position = Vector2( 1059.88, 1312.23 )
+
+[node name="JumpPad2" parent="JumpPads" instance=ExtResource( 8 )]
+position = Vector2( 1616.37, 2517.72 )
+
+[node name="JumpPad3" parent="JumpPads" instance=ExtResource( 8 )]
+position = Vector2( 4431.06, 2968.11 )
+
+[node name="JumpPad4" parent="JumpPads" instance=ExtResource( 8 )]
+position = Vector2( 2287.46, 1374.46 )
+
+[node name="JumpPad5" parent="JumpPads" instance=ExtResource( 8 )]
+position = Vector2( 4105.14, 2460.24 )
 [connection signal="body_entered" from="Spikes/SpikesBottom" to="Spikes/SpikesBottom" method="_on_SpikesTop_body_entered"]
 [connection signal="body_entered" from="Spikes/SpikesBottom2" to="Spikes/SpikesBottom2" method="_on_SpikesTop_body_entered"]

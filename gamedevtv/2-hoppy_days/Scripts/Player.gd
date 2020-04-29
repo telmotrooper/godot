@@ -4,6 +4,9 @@ const SPEED = 750
 const GRAVITY = 2500
 const UP = Vector2(0, -1)
 const JUMP_SPEED = -1100
+const BOOST_MULTIPLIER = 2
+
+var lives = 3 
 
 var motion = Vector2()
 export var world_limit = 3200
@@ -52,3 +55,6 @@ func run():
 		motion.x = 0
 		$AnimatedSprite.play("idle")
 		$AnimatedSprite.flip_h = false
+
+func boost():
+	motion.y = JUMP_SPEED * BOOST_MULTIPLIER
